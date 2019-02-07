@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+  meta(charset='utf-8')
+  title pug template
+  body
+    div.container
+      h1 You are in a private area
+      p floor #{floor}
+      if floor % 2 === 0
+        this is an EVEN floor
+      else
+        this is an ODD floor
