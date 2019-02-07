@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Comfortaa', cursive;
+}
+.header {
+  background: url("https://media.licdn.com/dms/image/C5116AQF-df-SM-B1mg/profile-displaybackgroundimage-shrink_350_1400/0?e=1554940800&v=beta&t=mSZ9j7XcEK-NAMUDUOpUIS94kB89GHxrK6YIov9BMp8");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header .page-title {
+  font-weight: 200;
+  font-size: 80px;
+  text-align: center;
+  padding: 100px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.nav {
+  background: #0e1329;
+  text-align: center;
+}
+.nav li {
+  display: inline-block;
+}
+.nav a {
+  display: inline-block;
+  padding: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+.nav a:hover {
+  background-color: #ebebeb;
+  text-decoration: underline;
+  color: #15455b;
+  text-decoration: none;
+}
+.main-content {
+  margin: 50px auto;
+  max-width: 600px;
+}
+.main-content p {
+  line-height: 1.6;
+  margin-bottom: 1.7em;
+}
+.footer {
+  margin: 50px auto;
+  max-width: 600px;
+  border-top: 1px solid #444;
+  padding: 20px 0;
+}
+.footer p {
+  color: #444;
+  font-size: 12px;
+}

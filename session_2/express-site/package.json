@@ -1,0 +1,21 @@
+{
+  "name": "express-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && npm run build-css",
+    "build-css": "stylus stylus/index.styl -o static/css",
+    "clean": "rm -rf static/css && mkdir -p static/css",
+    "start": "node server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dtodo1paco",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "pug": "^2.0.3",
+    "stylus": "^0.54.5"
+  }
+}
