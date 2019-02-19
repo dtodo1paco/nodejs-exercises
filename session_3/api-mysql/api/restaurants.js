@@ -26,7 +26,7 @@ module.exports = (app, db) => {
   );
 
   app.put( BASE + ":id", (req, res) =>
-    db.post.update(
+    db.restaurant.update(
       {
         name: req.body.name,
         address: req.body.address,
@@ -41,7 +41,7 @@ module.exports = (app, db) => {
   );
 
   app.delete( BASE + ":id", (req, res) =>
-    db.post.destroy({
+    db.restaurant.destroy({
       where: {
         id: req.params.id
       }
