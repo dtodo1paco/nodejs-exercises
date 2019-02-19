@@ -18,6 +18,10 @@ router.post('/profile', function(req, res, next) {
     console.log("File is uploading... to: [" + whereTheFileWillBe +"]")
   });
 
+  form.on('field', function(name, value) {
+    console.log("Field comming: ["+name+"] value ["+value+"]");
+  });
+
   form.on('file', function (name, file){
     console.log('Uploaded ' + file.name);
   });
