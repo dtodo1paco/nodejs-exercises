@@ -1,0 +1,28 @@
+{
+  "name": "api-mysql",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "./node_modules/nodemon/bin/nodemon.js bin/www",
+    "sequelize-skeleton": "./node_modules/sequelize-cli/lib/sequelize init:models; ./node_modules/sequelize-cli/lib/sequelize init:config",
+    "init-db": "echo 'DROP DATABASE IF EXISTS api_mysql; CREATE DATABASE api_mysql CHARACTER SET utf8 COLLATE utf8_general_ci' | mysql -u test -p && cd -"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "^4.16.4",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0",
+    "mysql2": "^1.6.4",
+    "sequelize": "^4.42.0"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "lodash.random": "^3.2.0",
+    "lodash.times": "^4.3.2",
+    "nodemon": "^1.18.9",
+    "sequelize-cli": "^5.4.0"
+  }
+}

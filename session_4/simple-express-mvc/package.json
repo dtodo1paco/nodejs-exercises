@@ -1,0 +1,23 @@
+{
+  "name": "simple-express-mvc",
+  "version": "1.0.0",
+  "description": "MVC for learning purposes",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "dtodo1paco",
+  "license": "MIT ",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.4",
+    "node": "^11.0.0",
+    "pug": "^2.0.3",
+    "sequelize": "^4.42.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  }
+}
