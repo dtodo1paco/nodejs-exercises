@@ -1,0 +1,23 @@
+{
+  "name": "simple-api",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "mocha --timeout 2000 --colors -- **/*.test.js",
+    "test-report": "JUNIT_REPORT_PATH=test-result/result.xml JUNIT_REPORT_STACK=1 mocha --timeout 2000 --colors --reporter mocha-jenkins-reporter -- **/*.test.js"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "faker": "^4.1.0",
+    "morgan": "~1.9.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "mocha": "^5.2.0",
+    "supertest": "^3.4.2"
+  }
+}

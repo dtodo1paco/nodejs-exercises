@@ -1,0 +1,7 @@
+<testsuites name="Mocha Tests">
+  <testsuite name="User" tests="1" errors="0" failures="1" skipped="0" timestamp="2019-02-09T09:54:20" time="2.012">
+    <testcase classname="User" name="should return a 200 response" time="2.004">
+      <failure message="Timeout of 2000ms exceeded. For async tests and hooks, ensure &quot;done()&quot; is called; if returning a Promise, ensure it resolves. (/BAR/WORKSPACE/CODESPACE/nodejs/run/session_5/simple-api/routes/tests/users.test.js)"></failure>
+    </testcase>
+  </testsuite>
+</testsuites>
