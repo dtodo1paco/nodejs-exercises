@@ -1,0 +1,15 @@
+extends layout
+block navMenu
+  li: a(href='/') Home
+  li: a(href='/sales') Sales
+  li: a(href='/team') Team
+  li: a(href='/contact') Contact
+  li: a(href='/logout') Logout
+
+block content
+  h1= title
+  p Wellcome back
+    .username #{fullname}
+  p Yeah! you've successfully logged in as
+    .username #{username}
+  p Total sessions: #{sessions}
