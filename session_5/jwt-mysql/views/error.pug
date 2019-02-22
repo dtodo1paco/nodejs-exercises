@@ -1,0 +1,14 @@
+extends layout
+block navMenu
+  li: a(href='/') Home
+  li: a(href='/auth/login') Login
+
+block content
+  h1= title
+  p An error ocurred
+    .error-message #{message.text}
+  h2= error.status
+    pre #{error.stack}
+
+  a(href='/')
+    Go Home

@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='/css/index.css')
+    block css
+    title My express site
+    block scripts
+  body
+    .header
+      h1.page-title My express site
+
+    ul.nav
+      block navMenu
+
+    .main-content
+      block content
+
+    .footer
+      p Copyright © 2019 <a href="http://dtodo1paco.github.io/cv/">@dtodo1paco</a>

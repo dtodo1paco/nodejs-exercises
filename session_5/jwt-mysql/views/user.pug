@@ -1,0 +1,22 @@
+extends layout
+block navMenu
+  li: a(href='/') Home
+  li: a(href='/auth/logout') Logout
+
+block content
+  h1= title
+  - if(message){
+    - if(message.type === 'error'){
+        p(style='color: red') #{message.text}
+    - }
+    - if(message.type === 'info'){
+        p(style='color: green') #{message.text}
+    - }
+  - }
+  p Wellcome back
+    .username #{fullname}
+  p Yeah! you've successfully logged in as
+    .username #{username}
+  - qs = '/internal/chat-room/'+ token;
+  a(href=qs)
+    Enter chatroom
