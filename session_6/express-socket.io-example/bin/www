@@ -1,0 +1,137 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('chat-example:server');
+var http = require('http');
+const socketIO = require('socket.io');
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+let clicks = 0;
+const io = socketIO.listen(server);
+io.set('origins', '*:*');
+
+io.origins((origin, callback) => {
+  console.log("!! origin: " + origin);
+  /*
+  if (origin !== 'http://localhost:3000/') {
+    return callback('origin not allowed', false);
+  }
+  */
+  console.log("...let them pass :) ");
+  callback(null, true);
+});
+
+
+const serverMessage = {message: "PING"}
+io.sockets.on('connection', function(socket){
+  const sendPING = () => {
+    console.log(`SERVER: sending ${JSON.stringify(serverMessage)} to client ${socket.id}`);
+    socket.emit('server-ping', serverMessage);
+  }
+  console.log("SERVER: connection arrived: " + socket.id);
+  // Notify clients
+  socket.emit('connected');
+
+  // Listen on click event
+  socket.on('click', function(){
+    clicks++; // increment counter
+    console.log("SERVER: click arrived: sending next value: " + clicks);
+    socket.emit('totalClicks', clicks);
+  });
+  // Listen on client-pong event
+  socket.on('client-pong', function(data) {
+    console.log(`SERVER: received [${JSON.stringify(data)}] from client: ${socket.id}`);
+    if (clicks > 0) {
+      clicks--;
+      setTimeout(sendPING, 1000);
+    } else {
+      console.log(`SERVER: Ignoring PONG from client: ${socket.id} because there are no clicks`);
+    }
+    socket.emit('totalClicks', clicks);
+  });
+});
+
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}

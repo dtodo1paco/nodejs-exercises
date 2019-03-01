@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>socket.io example</title>
+</head>
+<body>
+<h1>socket.io example</h1>
+<p>
+Comparing WebSocket vs. Socket.IO on Node.js with Express.js
+</p>
+<p>
+This is the socket.io example.
+See the <a href="http://localhost:3001/">websocket example</a>.
+</p>
+<ol id="list"></ol>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+
+var list = document.getElementById('list');
+var log = function (data) {
+    var li = document.createElement('li');
+    li.innerText = new Date().toISOString()+': '+data;
+    list.appendChild(li);
+}
+log('opening socket.io connection');
+var s = io();
+s.on('connect_error', function (m) { log("error on connection"); });
+s.on('connect', function (m) { log("socket.io connected"); });
+s.on('message', function (m) { log(m); });
+
+</script>
+</body>
+</html>
+
