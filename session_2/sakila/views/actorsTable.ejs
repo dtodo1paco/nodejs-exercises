@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= 'actors' %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>actors</h1>
+    <ul>
+        <%
+        for (let i=0; i<actors.length ; i++) {
+        %>
+        <li>
+            First name: <%= actors[i].first_name %>
+        </li>
+        <%
+        }
+        %>
+    </ul>
+  </body>
+</html>
